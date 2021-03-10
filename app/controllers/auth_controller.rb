@@ -11,4 +11,10 @@ class AuthController < ApplicationController
     end
     render json: payload
   end
+
+  def destroy
+    reset_session
+    payload = { message: 'ログアウトしました。', name: user.name }
+    render json: payload
+  end
 end
