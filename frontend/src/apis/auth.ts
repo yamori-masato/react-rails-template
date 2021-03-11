@@ -1,27 +1,31 @@
 import { newAxiosInstance } from './base'
 
-type LoginParams = {
+export type LoginParams = {
   email: string
   password: string
 }
 
-type SigninParams = {
+type LoginResponse = schema.User
+
+export type SignupParams = {
   name: string
   email: string
   password: string
 }
 
+type SignupResponse = schema.User
+
 const instance = newAxiosInstance()
 
 export const login = async (params: LoginParams) => (
-  instance.post('login', {
+  instance.post<LoginResponse>('login', {
     email: params.email,
     password: params.password,
   })
 )
 
-export const signin = async (params: SigninParams) => (
-  instance.post('signin', {
+export const signup = async (params: SignupParams) => (
+  instance.post<SignupResponse>('signin', {
     name: params.name,
     email: params.email,
     password: params.password,

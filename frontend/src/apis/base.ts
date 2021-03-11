@@ -17,9 +17,9 @@ export const newAxiosInstance = (options: AxiosRequestConfig = {}) => {
   instance.interceptors.response.use(
     response => {
       if (process.env.NODE_ENV === 'development') {
-        console.log(response)
+        console.log('[DEBUG]', response)
       }
-      return response.data
+      return response
     },
     error => {
       return Promise.reject(error)
