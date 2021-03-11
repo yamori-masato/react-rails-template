@@ -35,3 +35,7 @@ export const signup = async (params: SignupParams) => (
 export const logout = async () => (
   instance.delete('logout')
 )
+
+export const fetchCurrentUser = async () => (
+  instance.get('')
+)
